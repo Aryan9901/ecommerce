@@ -1,0 +1,342 @@
+.shipping {
+	@include flex(row, center, flex-start, 1rem);
+	background-color: #ebebeb;
+	max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+	min-height: 87.25vh;
+	padding: 2rem 8rem;
+	position: relative;
+	> div {
+		@include flex(column, flex-start, center, 1rem);
+	}
+	&_left {
+		width: 50%;
+		min-height: 81.3vh;
+	}
+	&_right {
+		width: 50%;
+		min-height: 81.3vh;
+	}
+}
+
+.shipping_left {
+	> div {
+		border-radius: 5px;
+		background-color: #fcfcfc;
+		width: 100%;
+		padding: 1rem;
+		box-shadow: rgba(252, 247, 247, 0.02) 0px 1px 3px 0px, rgba(133, 136, 138, 0.15) 0px 0px 0px 1px;
+	}
+	&_address {
+		&--top {
+			@include flex(row, space-between, center, 0);
+			padding-bottom: 1rem;
+			border-bottom: 1px solid rgba(211, 207, 207, 0.747);
+			> button {
+				@include flex(row, center, center, 0.5rem);
+				background-color: transparent;
+				color: salmon;
+				font-size: 1.2rem;
+			}
+		}
+		&--bottom {
+			padding: 1rem 0;
+			@include flex(row, flex-start, center, 1rem);
+			> img {
+				padding: 0.6rem 0;
+				width: 26%;
+				border-radius: 5px;
+				background-color: #ccc5c5c4;
+			}
+			> div {
+				width: 70%;
+				> p {
+					font-family: monospace;
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+	&_review {
+		> h4 {
+			font-size: 1.1rem;
+			margin: 0.4rem;
+			border-bottom: 1px solid rgba(211, 207, 207, 0.747);
+		}
+		&_itemContainer {
+			@include flex(column, flex-start, center, 1rem);
+		}
+	}
+
+	&_item {
+		@include flex(row, flex-start, center, 1rem);
+		padding: 1rem;
+		border-radius: 5px;
+		width: 100%;
+		background-color: #ebebeb;
+		> img {
+			width: 30%;
+			border-radius: 8px;
+		}
+		&--details {
+			align-self: flex-start;
+			@include flex(column, flex-start, flex-start, 0.1rem);
+			> a {
+				color: $color2;
+				font-size: 1.2rem;
+				@include heading(2px);
+				font-weight: 600;
+				font-family: monospace;
+				&:hover {
+					color: $color3;
+				}
+			}
+			> h4 {
+				font-size: 1rem;
+				color: $color3;
+			}
+		}
+		&--stock {
+			@include flex(row, center, center, 1rem);
+			align-self: flex-start;
+			margin-left: auto;
+			color: #061715;
+			font-size: 1rem;
+			> svg {
+				cursor: pointer;
+				&:hover {
+					color: $color3;
+				}
+			}
+		}
+	}
+}
+
+.shipping_right {
+	&_summary {
+		padding: 1rem;
+		width: 100%;
+		background-color: white;
+		border-radius: 5px;
+		box-shadow: rgba(252, 247, 247, 0.02) 0px 1px 3px 0px, rgba(133, 136, 138, 0.15) 0px 0px 0px 1px;
+
+		> h2 {
+			border-bottom: 1px solid rgba(211, 207, 207, 0.747);
+			padding-bottom: 0.6rem;
+			font-size: 1.2rem;
+		}
+		> form {
+			padding: 1rem 2rem;
+			@include flex(column, flex-start, flex-start, 1rem);
+			> div {
+				width: 100%;
+				@include flex(row, flex-start, center, 1rem);
+				> svg {
+					width: 10%;
+				}
+				> label {
+					&:hover {
+						color: $color3;
+					}
+				}
+			}
+			> button {
+				margin-top: 1rem;
+				padding: 0.8rem 2.2rem;
+				font-size: 1rem;
+				border-radius: 5px;
+				color: #000;
+				background-color: #6e69693f;
+				transition: all 0.4s;
+				&:hover {
+					background-color: #6e696911;
+				}
+			}
+			border-bottom: 1px solid rgba(211, 207, 207, 0.747);
+		}
+
+		> .billDetails {
+			padding: 2rem 0;
+			> div {
+				@include flex(row, space-between, center, 0);
+				padding: 0 1rem;
+
+				font-family: monospace;
+				> h4 {
+					color: #acabaf;
+					font-weight: 500;
+					font-size: 1.2rem;
+				}
+				> h5 {
+					font-weight: 500;
+					color: #acabaf;
+					font-size: 1.1rem;
+				}
+				> h3 {
+					font-weight: 700;
+					font-size: 1.2rem;
+				}
+				&:nth-child(4) {
+					padding-bottom: 1rem;
+				}
+				&:last-child {
+					padding-top: 0.3rem;
+					border-top: 1px solid rgba(211, 207, 207, 0.747);
+				}
+			}
+		}
+		> button {
+			width: 90%;
+			padding: 0.8rem 2rem;
+			border-radius: 50px;
+			display: block;
+			font-size: 1.2rem;
+			margin: 0 auto;
+			background-color: #bae770;
+		}
+	}
+}
+
+.addressDialog {
+	min-height: 100vh;
+	width: clamp(400px, 100%, 1440px);
+	position: relative;
+	border: none;
+	outline: none;
+	padding: 2rem;
+	> div {
+		position: absolute;
+		top: 3%;
+		left: 2%;
+		@include square(4rem);
+		@include flex(row, center, center, 0);
+		border-radius: 50%;
+		background-color: $color3;
+		transition: all 0.4s;
+		cursor: pointer;
+		> svg {
+			color: $nav-hover;
+			font-size: 2.5rem;
+		}
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+	> form {
+		width: clamp(300px, 45%, 800px);
+		box-shadow: rgba(252, 247, 247, 0.02) 0px 1px 3px 0px, rgba(133, 136, 138, 0.15) 0px 0px 0px 1px;
+		margin: 0 auto;
+		padding: 2rem 2rem;
+		border-radius: 5px;
+		@include flex(column, center, center, 1rem);
+		> h2 {
+			@include heading;
+			font-family: monospace;
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		> div {
+			@include grid(28% 72%);
+			width: 80%;
+			place-items: center;
+			justify-items: flex-start;
+			margin: o auto;
+			font-size: 1.2rem;
+			font-family: monospace;
+			> input {
+				@include inputStyles;
+				border: 1px solid rgba(211, 207, 207, 0.747);
+				border-radius: 5px;
+				font-family: monospace;
+				font-size: 1rem;
+			}
+			> select {
+				@include inputStyles;
+				border: 1px solid rgba(211, 207, 207, 0.747);
+				border-radius: 5px;
+				font-family: monospace;
+
+				font-size: 1.2rem;
+				> option {
+					padding: 3rem 0rem;
+				}
+			}
+		}
+		> button {
+			margin-top: 1rem;
+			padding: 0.9rem 2rem;
+			border-radius: 5px;
+			background-color: $color3;
+			color: #fcfcfc;
+			font-size: 1.2rem;
+			font-weight: 700;
+			transition: all 0.4s;
+			&:hover {
+				opacity: 0.6;
+			}
+		}
+	}
+}
+
+// ?! payment method checkboxes
+
+.checkbox-wrapper-31:hover .check {
+	stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper-31 {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+}
+.checkbox-wrapper-31 .background {
+	fill: #ccc;
+	transition: ease all 0.6s;
+	-webkit-transition: ease all 0.6s;
+}
+.checkbox-wrapper-31 .stroke {
+	fill: none;
+	stroke: #fff;
+	stroke-miterlimit: 10;
+	stroke-width: 2px;
+	stroke-dashoffset: 100;
+	stroke-dasharray: 100;
+	transition: ease all 0.6s;
+	-webkit-transition: ease all 0.6s;
+}
+.checkbox-wrapper-31 .check {
+	fill: none;
+	stroke: #fff;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2px;
+	stroke-dashoffset: 22;
+	stroke-dasharray: 22;
+	transition: ease all 0.6s;
+	-webkit-transition: ease all 0.6s;
+}
+.checkbox-wrapper-31 input[type="radio"] {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	margin: 0;
+	opacity: 0;
+	-appearance: none;
+	-webkit-appearance: none;
+}
+.checkbox-wrapper-31 input[type="radio"]:hover {
+	cursor: pointer;
+}
+.checkbox-wrapper-31 input[type="radio"]:checked + svg .background {
+	fill: #6cbe45;
+}
+.checkbox-wrapper-31 input[type="radio"]:checked + svg .stroke {
+	stroke-dashoffset: 0;
+}
+.checkbox-wrapper-31 input[type="radio"]:checked + svg .check {
+	stroke-dashoffset: 0;
+}

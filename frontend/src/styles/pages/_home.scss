@@ -1,0 +1,250 @@
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.home {
+	padding: 0;
+	@include flex(column, unset, unset, 0);
+	min-height: 76vh;
+	width: 100%;
+
+	&_hero {
+		border-radius: 15px;
+
+		&_swiper_container {
+			border-radius: 15px;
+			.swiper {
+				width: 100%;
+				height: 60vh;
+				background: #000;
+				border-radius: 15px;
+			}
+
+			.swiper-slide {
+				background-size: cover;
+				font-size: 18px;
+				// font-size: 2rem;
+				color: #fff;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				padding: 2rem 4rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				border-radius: 15px;
+			}
+
+			.parallax-bg {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 130%;
+				height: 100%;
+				-webkit-background-size: cover;
+				background-size: cover;
+				background-position: center;
+				border-radius: 15px;
+			}
+
+			.swiper-slide .title {
+				font-size: 3.5rem;
+				font-weight: 600;
+				line-height: 1.1;
+				color: #f32517;
+			}
+
+			.swiper-slide .subtitle {
+				font-size: 3.5rem;
+				font-weight: 600;
+				line-height: 1.1;
+			}
+
+			.swiper-slide .text {
+				font-size: 1rem;
+				text-align: center;
+				text-wrap: balance;
+				width: 60%;
+				margin-top: 2rem;
+				line-height: 1.2;
+			}
+		}
+		// ** swiper
+	}
+
+	&_latest {
+		&_product {
+			padding: 2rem;
+		}
+		&_heading {
+			@include flex(row, space-between, center, 0);
+			border-bottom: 1.5px solid $black;
+			> h2 {
+				font-size: 1.5rem;
+			}
+			> a {
+				@include flex(row, unset, center, 1rem);
+				font-size: 1.2rem;
+				font-weight: 500;
+				transition: all 0.3s;
+				&:hover {
+					color: $nav-hover;
+				}
+				> svg {
+					font-size: 0.9rem;
+					color: $nav-hover;
+				}
+			}
+		}
+		&_container {
+			padding: 1rem 0;
+			margin-top: 1rem;
+			min-height: 60vh;
+			@include flex(row, center, flex-start, 1rem);
+			flex-wrap: wrap;
+		}
+		&_card {
+			max-width: 430px;
+			min-width: 300px;
+			border-radius: 5px;
+			// min-height: 80vh;
+			overflow: hidden;
+			width: 32%;
+			// background-color: #f5fafd;
+			object-fit: cover;
+			object-position: center;
+			&_content {
+				height: 100%;
+				width: 100%;
+				padding: 1rem 2rem;
+				> img {
+					width: 100%;
+					height: auto;
+
+					object-fit: cover;
+					object-position: center;
+				}
+				@include flex(column, space-between, flex-start, 2rem);
+				> .card_footer {
+					width: 100%;
+					> h5 {
+						font-size: 1.2rem;
+					}
+					@include flex(row, space-between, center, 0);
+					> .buttons {
+						@include flex(row, unset, center, 1rem);
+						> span {
+							font-size: 1.3rem;
+							@include flex(row, unset, center, 0.3rem);
+						}
+						svg {
+							font-size: 1.5rem;
+						}
+						> svg:first-child {
+							color: #666;
+						}
+						> svg:last-child {
+							color: #ff0095;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&_allproducts {
+		padding: 0 2rem;
+		margin-bottom: 2rem;
+		&_heading {
+			@include flex(row, space-between, center, 0);
+			border-bottom: 1.5px solid $black;
+			> h2 {
+				font-size: 1.5rem;
+			}
+			> a {
+				@include flex(row, unset, center, 1rem);
+				font-size: 1.2rem;
+				font-weight: 500;
+				transition: all 0.3s;
+				&:hover {
+					color: $nav-hover;
+				}
+				> svg {
+					font-size: 0.9rem;
+					color: $nav-hover;
+				}
+			}
+		}
+
+		// all products container
+		&_container {
+			width: 100%;
+			margin: 0 auto;
+			flex: 1;
+			@include flex(row, space-between, center, 1rem);
+			flex-wrap: wrap;
+			padding: 2rem 0rem;
+			margin-bottom: 1rem;
+		}
+		&_card {
+			@include flex(column, center, center, 0rem);
+			box-shadow: 0 0 2px #8e8181;
+			position: relative;
+			width: 32%;
+			min-height: 50vh;
+			border-radius: 5px;
+			padding-bottom: 2rem;
+			color: #fcfcfc;
+			// padding: 1rem 2rem;
+			max-width: 434px;
+			min-width: 300px;
+			// overflow: hidden;
+			&:hover {
+				> div {
+					opacity: 1;
+				}
+			}
+			> div {
+				transition: all 1s;
+				position: absolute;
+				opacity: 0;
+				top: 0%;
+				left: 0%;
+				@include square(100%);
+				@include flex(row, center, center, 2rem);
+				background-color: #0000006b;
+				> button {
+					@include flex(row, center, center, 2rem);
+					background-color: $nav-hover;
+					@include square(3rem);
+					font-size: 1.5rem;
+					border-radius: 50%;
+					transition: all 1s;
+					color: #fcfcfc;
+
+					&:hover {
+						scale: 1.1;
+					}
+				}
+				> a {
+					font-size: 1.5rem;
+					color: blue;
+				}
+			}
+			> img {
+				border-radius: 3px;
+				@include square(18rem);
+				width: 100%;
+				margin-bottom: 1rem;
+				// z-index: -1;
+			}
+			> h4 {
+				color: #000;
+				font-weight: 600;
+			}
+			> span {
+				color: #000;
+			}
+		}
+	}
+}
